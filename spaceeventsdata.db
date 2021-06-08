@@ -1,0 +1,31 @@
+CREATE TABLE spaceevents (
+    EventName text PRIMARY KEY,
+    EventType text NOT NULL, 
+    DateOccurs text NOT NULL,
+    Speed Text NULL,
+    LocationLat real NULL,
+    LocationLong real NULL, 
+    Directions text NULL
+);
+
+/* IF LOCATION IS NULL IT IS BECAUSE IT CHANGES OR HAS NOT YET BEEN DETERMINED 
+THE DATE VALUES ARE CURRENTLY THE AVERAGE ANNUAL TIMES BUT THIS WILL ALSO BE MANIPULATED BASEED ON YEAR*/
+Insert INTO spaceevents VALUES ('The Quadrantid Meteor Shower', 'Meteor Shower','January 2-3','40 meteors per hour', NULL, NULL, NULL);
+Insert INTO spaceevents VALUES ('Lyrids Meteor Shower', 'Meteor Shower', 'April 22-23', '20 meteors per hour', NULL, NULL, NULL);
+Insert INTO spaceevents VALUES ('Eta Aquarids Meteor Shower', 'Meteor Shower', 'April 19-May 28', '60 meteors per hour', NULL, NULL, NULL);
+Insert INTO spaceevents VALUES ('Annular Solar Eclipse', 'Solar Eclipse', 'June 10', NULL, 80.8149, 66.765, "NW");
+Insert INTO spaceevents VALUES ('Delta Aquarids Meteor Shower', 'Meteor Shower', 'July 12-August 23','20 meteors per hour',NULL, NULL, NULL);
+Insert INTO spaceevents VALUES ('Perseids Meteor Shower', 'Meteor Shower','July 17-August 24', '60 meteors per hour', NULL, NULL, NULL);
+Insert INTO spaceevents VALUES ('Draconids Meteor Shower', 'Meteor Shower', 'October 6-10', '10 meteors per hour', NULL, NULL, NULL);
+Insert INTO spaceevents VALUES ('Orionids Meteor Shower', 'Meteor Shower', 'October 2-November 77', '20 meteors per hour', NULL, NULL, NULL);
+Insert INTO spaceevents VALUES ('Taurids Meteor Shower', 'Meteor Shower', 'September 7-December 10', '10 meteors per hour', NULL, NULL, NULL);
+Insert INTO spaceevents VALUES ('Leonids Meteor Shower', 'Meteor Shower', 'November 6-30', '15 meteors per hour', NULL, NULL, NULL);
+Insert INTO spaceevents VALUES ('Partial Lunar Eclipse', 'Lunar Eclipse', 'November 19', NULL, 19, 140, "NW");
+Insert INTO spaceevents VALUES ('Total Solar Eclipse', 'Solar Eclipse', 'December 4',NULL, 76.8, 46.2, "SW");
+Insert INTO spaceevents VALUES ('Geminids Meteor Shower', 'Meteor Shower','December 7-17', '120 meteors per hour', NULL, NULL, NULL);
+Insert INTO spaceevents VALUES ('Ursids Meteor Shower', 'Meteor Shower','December 17-25' ,'10 meteors per hour', NULL, NULL, NULL);
+
+/*Location of the meteor showers are based on the conseleations position they came from - However they can be viewed anywhere on earth */
+
+/* Display all the records from the table */
+SELECT * FROM spaceevents;
