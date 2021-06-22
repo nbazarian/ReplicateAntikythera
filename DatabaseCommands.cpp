@@ -6,6 +6,9 @@
  */
 //Implementation of the DatabaseCommands header file
 #include "DatabaseCommands.h"
+#include "DBTable.h"
+#include <vector>
+
 
 //Constructor and Destructor
 DatabaseCommands::DatabaseCommands(){
@@ -33,19 +36,26 @@ void DatabaseCommands::openDatabase(sqlite3* database, std::string name){
 
 //Sqlite3 commands
 void DatabaseCommands::sqlite3Command(sqlite3* database, std::string command){
-	sqlite3_exec(database, command.c_str(), callback, NULL, NULL);
+	sqlite3_exec(database, command.c_str(), printCallBack, NULL, NULL);
 }
 
 void DatabaseCommands::sqlite3Command(sqlite3* database, char* command){
-	sqlite3_exec(database, command, callback, NULL, NULL);
+	sqlite3_exec(database, command, printCallBack, NULL, NULL);
 }
 
 void DatabaseCommands::sqlite3Command(std::string command){
-	sqlite3_exec(this->database, command.c_str(), callback, NULL, NULL);
+	sqlite3_exec(this->database, command.c_str(), printCallBack, NULL, NULL);
 }
 
 void DatabaseCommands::sqlite3Command(char* command){
-	sqlite3_exec(this->database, command, callback, NULL, NULL);
+	sqlite3_exec(this->database, command, printCallBack, NULL, NULL);
+}
+
+//Notice the callback function within the sqlite3_exec method call
+Table DatabaseCommands::returnQuery(std::string command){
+	Table newTable;
+	int exit = sqlite3_exec(this->database, command.c_str(), queryCallBack, &newTable, &errMsg);
+	return newTable;
 }
 
 
