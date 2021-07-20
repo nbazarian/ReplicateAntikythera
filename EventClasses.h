@@ -27,13 +27,15 @@ class EventList {
 	{	
 		int decisionz;
 		std::cout<< "Search By Date " << std:: endl; 
-		std::cout<< "NO (1) "<<std::endl;
-		std::cout<< "YES (2)" << std::endl; 
+		std::cout<< "Current Date (1) "<<std::endl;
+		std::cout<< "Choose my date (2)" << std::endl; 
 		std::cin >> decisionz;
 		switch (decisionz)
 		{
 		case 1: 
-		//just continue to display current date 
+		//calculate current date values here
+		geteclipse(m,d);
+		getevents(m,d); 
 		break; 
 		case 2: 
 		int m;
@@ -68,19 +70,7 @@ class Planets{
 	
 };
 
-class Eclipses: public EventList  {
-	private :
-	std::string temp;
-	 std::string eclipsez;
-	public:
-	Eclipses () 
-	{
-	eclipsez = "SELECT * FROM ECLIPSES;";
-	}
-	void geteclipse (int month , int day ){
-		temp = "SELECT FROM ECLIPSES WHERE MonthOccurs = "+ std::to_string(month) +" AND DateOccurs = "+ std::to_string(day)+";";
-	}
-};
+
 
 class Events : public EventList  {
 	private :
@@ -88,10 +78,10 @@ class Events : public EventList  {
 	std::string eventz;
 	public: 
 	Events () {
-		eventz = "SELECT * FROM SPACEEVENTS;";
+		eventz = "SELECT * FROM SpaceEvents;";
 	}
 	void getevents (int month, int day) {
-		temp = "SELECT FROM SPACEEVENTS WHERE MonthOccurs = "+ std::to_string(month) +" AND DateOccurs = "+ std::to_string(day)+";";
+		temp = "SELECT FROM SpaceEvents WHERE Month = "+ std::to_string(month) +" AND Day = "+ std::to_string(day)+";";
 	}
 		};
 
