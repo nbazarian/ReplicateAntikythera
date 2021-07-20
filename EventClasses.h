@@ -33,9 +33,10 @@ class EventList {
 		switch (decisionz)
 		{
 		case 1: 
-		//calculate current date values here
-		geteclipse(m,d);
-		getevents(m,d); 
+		int cm; 
+		int cd;
+		//calculate current date values here;
+		getevents(cm,cd); 
 		break; 
 		case 2: 
 		int m;
@@ -43,7 +44,6 @@ class EventList {
 		std::cout<< "Insert Month (1-12)"<<std::endl;
 		std::cin>>m;
 		std::cin>>d;
-		geteclipse(m,d);
 		getevents(m,d);
 		break;
 		default: 
