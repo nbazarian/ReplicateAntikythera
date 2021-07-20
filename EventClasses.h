@@ -4,75 +4,96 @@
 #include <antikythera.db>
 #include <sqlite3.h>
 #include <string>
+#include <iostream>
+#include <cstdlib>
 
 
 class EventList {
 	private:
-	std::string eventtype;
-	std::string eventdate; 
+	std::string Planetlist;
+	std::string EclipseList;
+	std::string SpaceEventsList;
+
+	
+};
 	public :
 	EventList(){
+		Planetlist =  "SELECT * FROM PLANETS;";
+		EclipseList = "SELECT * FROM ECLIPSES;";
+		SpaceEventsList = = "SELECT * FROM SPACEEVENTS;";
 		
 	}
-	void searchbyType(){}
-	void searchbyDate(){}
+	void searchbydate () //current date or past date 
+	{	
+		int decisionz;
+		std::cout<< "Search By Date " << std:: endl; 
+		std::cout<< "NO (1) "<<std::endl;
+		std::cout<< "YES (2)" << std::endl; 
+		std::cin >> decisionz;
+		switch (decisionz)
+		{
+		case 1: 
+		//just continue to display current date 
+		break; 
+		case 2: 
+		int m;
+		int d;
+		std::cout<< "Insert Month (1-12)"<<std::endl;
+		std::cin>>m;
+		std::cin>>d;
+		geteclipse(m,d);
+		getevents(m,d);
+		break;
+		default: 
+		std::cout<< "Invalid value Goodbye" << std::endl;
+		break;
+			
+		}
+		
+	}
 };
 
-class Planets : public EventList{
+class Planets{
 	private: 
 	std::string planetname; 
-	int planetPeriod;
-	int planetSpeed; 
-	int planetDist;
-	int planetMass; 
-	std::string planetType; 
+	std::string planetz;
 	public :
 	Planets () 
 	{
-		
+	planetz = "SELECT * FROM PLANETS;";	
 	}
-	void getPNames ( int pattr) {}
-	void getOP (std::string n ) {} 
-	void getOS ( std::string n ) {} 
-	void getPlanetM (std::string n) {} 
-	void getPlanetT (std::string T) {} 
+	void getPlanet ( std::string planetname) {
+		"SELECT FROM PLANETS WHERE planetName = "+ planetname+";";
+	}
+	
 };
 
 class Eclipses: public EventList  {
 	private :
-	std::string dateOcc; 
-	std::string Ectype;
-	std::string EcLocation; 
+	std::string temp;
+	 std::string eclipsez;
 	public:
 	Eclipses () 
 	{
-		
+	eclipsez = "SELECT * FROM ECLIPSES;";
 	}
-	void getDates ( std::string loc) {} 
-	void getLocation (std:: string dat ) {} 
-	void getType (std::string date ) {} 
+	void geteclipse (int month , int day ){
+		temp = "SELECT FROM ECLIPSES WHERE MonthOccurs = "+ std::to_string(month) +" AND DateOccurs = "+ std::to_string(day)+";";
+	}
 };
 
 class Events : public EventList  {
 	private :
-	std::string EventName; 
-	std::string EventType; 
-	std::string DateOccurs; 
-	int Speed; 
-	int LocationLat; 
-	int LocationLong; 
-	std::string Direction; 
+	std::string temp;
+	std::string eventz;
 	public: 
 	Events () {
-		
+		eventz = "SELECT * FROM SPACEEVENTS;";
 	}
-	void getEventN(int Dat) { }
-	void getEventT(std::string nombre) { } 
-	void getDate (std::string nombre ) { } 
-	void getSpeed (std::string nombre) { } 
-	void getLocation (std::string nombre) {} 
-	void getDir (std::string nombre ) { } 
-};
+	void getevents (int month, int day) {
+		temp = "SELECT FROM SPACEEVENTS WHERE MonthOccurs = "+ std::to_string(month) +" AND DateOccurs = "+ std::to_string(day)+";";
+	}
+		};
 
 
 	
