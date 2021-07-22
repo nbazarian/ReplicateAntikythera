@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CircleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +85,105 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Space-Free-PNG-Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\earth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\harumea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jupiter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mercury.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\moon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neptune.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pluto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saturn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uranus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\venus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PngItem_1417327.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PngItem_1641691.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PngItem_1127101.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PngItem_51287.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PngItem_1693422.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PngItem_1784160.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\earth2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neptune2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\harumea png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\venus1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\venus2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pluto2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mercury2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saturn 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\moon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uranus2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7-73554_sun-transparent-background-download-sun-clipart-science.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-sun-the-sun-sunscreen-light-sphere-sun-image-file-formats-orange-sphere.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sun-48194.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\580b585b2edbce24c47b2710.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sun1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
