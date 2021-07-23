@@ -62,7 +62,7 @@ namespace AntikytheraGUI
             this.titleHeading.BackColor = System.Drawing.Color.Transparent;
             this.titleHeading.Font = new System.Drawing.Font("Myriad Pro Cond", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleHeading.ForeColor = System.Drawing.SystemColors.Control;
-            this.titleHeading.Location = new System.Drawing.Point(555, 9);
+            this.titleHeading.Location = new System.Drawing.Point(1569, 9);
             this.titleHeading.Name = "titleHeading";
             this.titleHeading.Size = new System.Drawing.Size(304, 45);
             this.titleHeading.TabIndex = 0;
