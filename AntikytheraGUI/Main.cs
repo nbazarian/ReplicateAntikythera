@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace AntikytheraGUI
 {
+    
     public partial class Main : Form
     {
+        #region Global Variables
         //flags
         bool reset = false;
 
@@ -44,6 +46,19 @@ namespace AntikytheraGUI
 
         bool orbitButton = false;
         bool predictButton = false;
+
+        //tooltip
+        ToolTip t1 = new ToolTip();
+        ToolTip t2 = new ToolTip();
+        ToolTip t3 = new ToolTip();
+        ToolTip t4 = new ToolTip();
+        ToolTip t5 = new ToolTip();
+        ToolTip t6 = new ToolTip();
+        ToolTip t7 = new ToolTip();
+        ToolTip t8 = new ToolTip();
+        #endregion
+
+        #region Main
         public Main()
         {
 
@@ -74,15 +89,9 @@ namespace AntikytheraGUI
             this.neptune.MouseHover += button8_MouseHover;
         }
 
-        ToolTip t1 = new ToolTip();
-        ToolTip t2 = new ToolTip();
-        ToolTip t3 = new ToolTip();
-        ToolTip t4 = new ToolTip();
-        ToolTip t5 = new ToolTip();
-        ToolTip t6 = new ToolTip();
-        ToolTip t7 = new ToolTip();
-        ToolTip t8 = new ToolTip();
+        #endregion
 
+        #region Mouse Hover Methods
         private void button1_MouseHover(object sender, EventArgs e)
         {
             t1.Show("Name: Mercury\nOrbit Period: 88 days\nOrbit Speed: 29 mi/s\nDistance from the sun: 43.382 million miles\nMass: 3.285 * 10^23 kg\nPlanet Type: Rough Surface", mercury);
@@ -123,6 +132,9 @@ namespace AntikytheraGUI
         {
             t8.Show("Name: Neptune\nOrbit Period: 163.72 years\nOrbit Speed: 3.374046 mi/s\nDistance from the sun: 2.7809 billion miles\nMass: 1.024 * 10^26 kg\nPlanet Type: Ice Giant", neptune);
         }
+        #endregion
+
+        #region Orbit Button
         private void btn_start_Click(object s, EventArgs e)
         {
             orbitButton = true;
@@ -213,7 +225,9 @@ namespace AntikytheraGUI
             }
        
         }
+        #endregion
 
+        #region Reset Button
         private void btn_reset_Click(object sender, EventArgs e)
         {
             reset = true;
@@ -274,7 +288,9 @@ namespace AntikytheraGUI
             btn_predict.ForeColor = System.Drawing.Color.Black;
             return;
         }
+        #endregion
 
+        #region Month DropDown
         private void comboBox_month_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -328,7 +344,56 @@ namespace AntikytheraGUI
                 december = true;
             }
         }
+        #endregion
 
+        #region Year DropDown
+        private void comboBox_year_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboBox_year.SelectedItem.ToString() == "2022")
+            {
+                y2022 = true;
+            }
+            if (comboBox_year.SelectedItem.ToString() == "2023")
+            {
+                y2023 = true;
+            }
+            if (comboBox_year.SelectedItem.ToString() == "2024")
+            {
+                y2024 = true;
+            }
+            if (comboBox_year.SelectedItem.ToString() == "2025")
+            {
+                y2025 = true;
+            }
+            if (comboBox_year.SelectedItem.ToString() == "2026")
+            {
+                y2026 = true;
+            }
+            if (comboBox_year.SelectedItem.ToString() == "2027")
+            {
+                y2027 = true;
+            }
+            if (comboBox_year.SelectedItem.ToString() == "2028")
+            {
+                y2028 = true;
+            }
+            if (comboBox_year.SelectedItem.ToString() == "2029")
+            {
+                y2029 = true;
+            }
+            if (comboBox_year.SelectedItem.ToString() == "2030")
+            {
+                y2030 = true;
+            }
+            if (comboBox_year.SelectedItem.ToString() == "2031")
+            {
+                y2031 = true;
+            }
+        }
+        #endregion
+
+        #region Predict Button
         private void btn_predict_Click(object sender, EventArgs e)
         {
             predictButton = true;
@@ -703,51 +768,9 @@ namespace AntikytheraGUI
            
 
         }
+        #endregion
 
-        private void comboBox_year_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (comboBox_year.SelectedItem.ToString() == "2022")
-            {
-                y2022 = true;
-            }
-            if (comboBox_year.SelectedItem.ToString() == "2023")
-            {
-                y2023 = true;
-            }
-            if (comboBox_year.SelectedItem.ToString() == "2024")
-            {
-                y2024 = true;
-            }
-            if (comboBox_year.SelectedItem.ToString() == "2025")
-            {
-                y2025 = true;
-            }
-            if (comboBox_year.SelectedItem.ToString() == "2026")
-            {
-                y2026 = true;
-            }
-            if (comboBox_year.SelectedItem.ToString() == "2027")
-            {
-                y2027 = true;
-            }
-            if (comboBox_year.SelectedItem.ToString() == "2028")
-            {
-                y2028 = true;
-            }
-            if (comboBox_year.SelectedItem.ToString() == "2029")
-            {
-                y2029 = true;
-            }
-            if (comboBox_year.SelectedItem.ToString() == "2030")
-            {
-                y2030 = true;
-            }
-            if (comboBox_year.SelectedItem.ToString() == "2031")
-            {
-                y2031 = true;
-            }
-        }
+        #region Month CheckBox
 
         private void checkBox_month_CheckedChanged(object sender, EventArgs e)
         {
@@ -756,7 +779,9 @@ namespace AntikytheraGUI
             comboBox_month.Visible = true;
      
         }
+        #endregion
 
+        #region Year CheckBox
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -766,11 +791,14 @@ namespace AntikytheraGUI
             
             
         }
+        #endregion
 
+        #region Quit Button
         private void btn_Quit_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
 
         }
+        #endregion
     }
 }
