@@ -56,6 +56,8 @@ namespace AntikytheraGUI
         ToolTip t6 = new ToolTip();
         ToolTip t7 = new ToolTip();
         ToolTip t8 = new ToolTip();
+
+        int count = 0;
         #endregion
 
         #region Main
@@ -94,134 +96,145 @@ namespace AntikytheraGUI
         #region Mouse Hover Methods
         private void button1_MouseHover(object sender, EventArgs e)
         {
-            t1.Show("Name: Mercury\nOrbit Period: 88 days\nOrbit Speed: 29 mi/s\nDistance from the sun: 43.382 million miles\nMass: 3.285 * 10^23 kg\nPlanet Type: Rough Surface", mercury);
+            t1.Show("Name: Mercury\nOrbit Period: 88 days\nOrbit Speed: 47.4 km/s\nDistance from the sun: 57.9 million kilometers\nMass: 3.285 * 10^23 kg\nPlanet Type: Rough Surface", mercury);
 
         }
         private void button2_MouseHover(object sender, EventArgs e)
         {
-            t2.Show("Name: Venus\nOrbit Period: 225 days\nOrbit Speed: 21.748 mi/s\nDistance from the sun: 66.785 million miles\nMass: 4.867 * 10^24 kg\nPlanet Type: Terrestrial", venus);
+            t2.Show("Name: Venus\nOrbit Period: 225 days\nOrbit Speed: 35 km/s\nDistance from the sun: 108.2 million kilometers\nMass: 4.867 * 10^24 kg\nPlanet Type: Terrestrial", venus);
 
         }
 
         private void button3_MouseHover(object sender, EventArgs e)
         {
-            t3.Show("Name: Earth\nOrbit Period: 365 days\nOrbit Speed: 18.6411 mi/s\nDistance from the sun: 94.369 million miles\nMass: 5.972 * 10^24 kg\nPlanet Type: Terrestrial", earth);
+            t3.Show("Name: Earth\nOrbit Period: 365 days\nOrbit Speed: 29.8 km/s\nDistance from the sun: 149.6 million kilometers\nMass: 5.972 * 10^24 kg\nPlanet Type: Terrestrial", earth);
 
         }
 
         private void button4_MouseHover(object sender, EventArgs e)
         {
-            t4.Show("Name: Mars\nOrbit Period: 687 days\nOrbit Speed: 14.9607 mi/s\nDistance from the sun: 155.27 million miles\nMass: 6.39 * 10^23 kg\nPlanet Type: Terrestrial", mars);
+            t4.Show("Name: Mars\nOrbit Period: 687 days\nOrbit Speed: 24.1 km/s\nDistance from the sun: 227.9 million kilometers\nMass: 6.39 * 10^23 kg\nPlanet Type: Terrestrial", mars);
 
         }
         private void button5_MouseHover(object sender, EventArgs e)
         {
-            t5.Show("Name: Jupiter\nOrbit Period: 11.86 years\nOrbit Speed: 8.1213215 mi/s\nDistance from the sun: 469.23 million miles\nMass: 1.898 * 10^27 kg\nPlanet Type: Gas-Giant", jupiter);
+            t5.Show("Name: Jupiter\nOrbit Period: 11.86 years\nOrbit Speed: 13.1 km/s\nDistance from the sun: 778.6 million kilometers\nMass: 1.898 * 10^27 kg\nPlanet Type: Gas-Giant", jupiter);
 
         }
         private void button6_MouseHover(object sender, EventArgs e)
         {
-            t6.Show("Name: Saturn\nOrbit Period: 29 years\nOrbit Speed: 6.021087 mi/s\nDistance from the sun: 924.19 million miles\nMass: 5.683 * 10^26 kg\nPlanet Type: Gas-Giant", saturn);
+            t6.Show("Name: Saturn\nOrbit Period: 29 years\nOrbit Speed: 9.7 km/s\nDistance from the sun: 1433.5 million kilometers\nMass: 5.683 * 10^26 kg\nPlanet Type: Gas-Giant", saturn);
 
         }
         private void button7_MouseHover(object sender, EventArgs e)
         {
-            t7.Show("Name: Uranus\nOrbit Period: 83.75 years\nOrbit Speed: 4.23153781914 mi/s\nDistance from the sun: 1.8357 billion miles\nMass: 8.681 * 10^25 kg\nPlanet Type: Ice Giant", uranus);
+            t7.Show("Name: Uranus\nOrbit Period: 83.75 years\nOrbit Speed: 6.8 km/s\nDistance from the sun: 2872.5 million kilometers\nMass: 8.681 * 10^25 kg\nPlanet Type: Ice Giant", uranus);
         }
         private void button8_MouseHover(object sender, EventArgs e)
         {
-            t8.Show("Name: Neptune\nOrbit Period: 163.72 years\nOrbit Speed: 3.374046 mi/s\nDistance from the sun: 2.7809 billion miles\nMass: 1.024 * 10^26 kg\nPlanet Type: Ice Giant", neptune);
+            t8.Show("Name: Neptune\nOrbit Period: 163.72 years\nOrbit Speed: 5.4 km/s\nDistance from the sun: 4495.1 million kilometers\nMass: 1.024 * 10^26 kg\nPlanet Type: Ice Giant", neptune);
         }
         #endregion
 
         #region Orbit Button
         private void btn_start_Click(object s, EventArgs e)
         {
-            orbitButton = true;
-            btn_orbit.BackColor = System.Drawing.Color.Green;
-            var timer = new Timer { Interval = 10 };
-            timer.Start();
+            count++;
 
-            if (reset == true)
+            if(count > 1)
             {
-                timer.Stop();
-            }
+                MessageBox.Show("ERROR: Press 'Reset' button before orbitting again. \nUnable to orbit while already orbitting.");
 
-            if (predictButton == true)
-            {
-                btn_orbit.BackColor = System.Drawing.Color.Red;
-
-                MessageBox.Show("ERROR: Press 'Reset' button before orbitting. \nUnable to predict & orbit at the same time.");
             }
             else
             {
-                //mercury
-                mercury.Angle = Math.PI;
-                mercury.Speed = Math.PI / -22;
-                mercury.Distance = 75;
-                //ovalPictureBox8.Location = new Point(555, 450);
-                Controls.Add(mercury);
-                timer.Tick += (sender, args) => mercury.RotateStep(reset);
+                orbitButton = true;
+                btn_orbit.BackColor = System.Drawing.Color.Green;
+                var timer = new Timer { Interval = 10 };
+                timer.Start();
+
+                if (reset == true)
+                {
+                    timer.Stop();
+                }
+
+                if (predictButton == true)
+                {
+                    btn_orbit.BackColor = System.Drawing.Color.Red;
+
+                    MessageBox.Show("ERROR: Press 'Reset' button before orbitting. \nUnable to predict & orbit at the same time.");
+                }
+                else
+                {
+                    //mercury
+                    mercury.Angle = Math.PI;
+                    mercury.Speed = Math.PI / -22;
+                    mercury.Distance = 75;
+                    //ovalPictureBox8.Location = new Point(555, 450);
+                    Controls.Add(mercury);
+                    timer.Tick += (sender, args) => mercury.RotateStep(reset);
 
 
-                //venus
-                venus.Angle = Math.PI;
-                venus.Speed = Math.PI / -30;
-                venus.Distance = 120;
-                //ovalPictureBox8.Location = new Point(555, 450);
-                Controls.Add(venus);
-                timer.Tick += (sender, args) => venus.RotateStep(reset);
+                    //venus
+                    venus.Angle = Math.PI;
+                    venus.Speed = Math.PI / -30;
+                    venus.Distance = 120;
+                    //ovalPictureBox8.Location = new Point(555, 450);
+                    Controls.Add(venus);
+                    timer.Tick += (sender, args) => venus.RotateStep(reset);
 
-                //earth
-                earth.Angle = Math.PI;
-                earth.Speed = Math.PI / -36;
-                earth.Distance = 152;
-                //ovalPictureBox8.Location = new Point(555, 450);
-                Controls.Add(earth);
-                timer.Tick += (sender, args) => earth.RotateStep(reset);
+                    //earth
+                    earth.Angle = Math.PI;
+                    earth.Speed = Math.PI / -36;
+                    earth.Distance = 152;
+                    //ovalPictureBox8.Location = new Point(555, 450);
+                    Controls.Add(earth);
+                    timer.Tick += (sender, args) => earth.RotateStep(reset);
 
-                //mars
-                mars.Angle = Math.PI;
-                mars.Speed = Math.PI / -44;
-                mars.Distance = 194;
-                //ovalPictureBox8.Location = new Point(555, 450);
-                Controls.Add(mars);
-                timer.Tick += (sender, args) => mars.RotateStep(reset);
+                    //mars
+                    mars.Angle = Math.PI;
+                    mars.Speed = Math.PI / -44;
+                    mars.Distance = 194;
+                    //ovalPictureBox8.Location = new Point(555, 450);
+                    Controls.Add(mars);
+                    timer.Tick += (sender, args) => mars.RotateStep(reset);
 
-                //jupiter
-                jupiter.Angle = Math.PI;
-                jupiter.Speed = Math.PI / -82;
-                jupiter.Distance = 266;
-                //ovalPictureBox8.Location = new Point(555, 450);
-                Controls.Add(jupiter);
-                timer.Tick += (sender, args) => jupiter.RotateStep(reset);
+                    //jupiter
+                    jupiter.Angle = Math.PI;
+                    jupiter.Speed = Math.PI / -82;
+                    jupiter.Distance = 266;
+                    //ovalPictureBox8.Location = new Point(555, 450);
+                    Controls.Add(jupiter);
+                    timer.Tick += (sender, args) => jupiter.RotateStep(reset);
 
-                //saturn
-                saturn.Angle = Math.PI;
-                saturn.Speed = Math.PI / -110;
-                saturn.Distance = 337;
-                //ovalPictureBox8.Location = new Point(555, 450);
-                Controls.Add(saturn);
-                timer.Tick += (sender, args) => saturn.RotateStep(reset);
+                    //saturn
+                    saturn.Angle = Math.PI;
+                    saturn.Speed = Math.PI / -110;
+                    saturn.Distance = 337;
+                    //ovalPictureBox8.Location = new Point(555, 450);
+                    Controls.Add(saturn);
+                    timer.Tick += (sender, args) => saturn.RotateStep(reset);
 
-                //uranus
-                uranus.Angle = Math.PI;
-                uranus.Speed = Math.PI / -158;
-                uranus.Distance = 426;
-                //ovalPictureBox8.Location = new Point(555, 450);
-                Controls.Add(uranus);
-                timer.Tick += (sender, args) => uranus.RotateStep(reset);
+                    //uranus
+                    uranus.Angle = Math.PI;
+                    uranus.Speed = Math.PI / -158;
+                    uranus.Distance = 426;
+                    //ovalPictureBox8.Location = new Point(555, 450);
+                    Controls.Add(uranus);
+                    timer.Tick += (sender, args) => uranus.RotateStep(reset);
 
-                //neptune
-                neptune.Angle = Math.PI;
-                neptune.Speed = Math.PI / -200;
-                neptune.Distance = 532;
-                //ovalPictureBox8.Location = new Point(555, 450);
-                Controls.Add(neptune);
-                timer.Tick += (sender, args) => neptune.RotateStep(reset);
+                    //neptune
+                    neptune.Angle = Math.PI;
+                    neptune.Speed = Math.PI / -200;
+                    neptune.Distance = 532;
+                    //ovalPictureBox8.Location = new Point(555, 450);
+                    Controls.Add(neptune);
+                    timer.Tick += (sender, args) => neptune.RotateStep(reset);
 
 
-                reset = false;
+                    reset = false;
+                }
+           
             }
        
         }
@@ -286,6 +299,8 @@ namespace AntikytheraGUI
 
             btn_predict.BackColor = Control.DefaultBackColor;
             btn_predict.ForeColor = System.Drawing.Color.Black;
+
+            count = 0;
             return;
         }
         #endregion
