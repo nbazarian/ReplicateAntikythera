@@ -92,65 +92,81 @@ int main(void){
 double solarPointer, metonicPointer, callippicPointer, gamesPointer, sarosPointer, exeglimosPointer, moonPointer;
 char* messageError;
 int input;
+sqlite3* DB;
+int exit = 0;
+exit = sqlite3_open("antikythera.db", &DB);			//open the database
 
-std::cout << "1.Search for event by date\n2.Calculate positions\n3.Close\nSelect:";
-std::cin >> input;
+int uChoice;
 
-	if (input == 1){
-		sqlite3* DB; 
-		int exit = 0;
-    		exit = sqlite3_open("antikythera.db", &DB);			//open the database
-		char* messageError; 
+int run =  1;
+while(run == 1){
+	std::cout << "1.Search for event by date\n2.Calculate positions\n3:Open Model\n4: Exit\nSelect:";
+	std::cin >> input;
+	switch(input){
 
+		case 1: {
 			tm* parts = returnCurrentDate();
-    		std::cout <<1 + parts->tm_mon << '/' << parts->tm_mday<<std::endl;
+			std::cout <<1 + parts->tm_mon << '/' << parts->tm_mday<<std::endl;
+			std::cout << "1.Search by current date\n2.Search by different date\nSelect:";
+			std::cin >> uChoice;
+			double tmDay = parts->tm_mon;
+			double tmMon = parts->tm_mday;
+				if (uChoice == 1){
+					std::string temp = "SELECT * FROM SpaceEvents WHERE Month = "+  to_string(tmMon) +" AND Day = "+ to_string(tmMon) +";";
+					exit = sqlite3_exec(DB, temp.c_str(), callback, 0, &messageError);
 
-		std::cout << "1.Search by current date\n2.Search by different date\nSelect:";
-		std::cin >> input;
-		double tmDay = parts->tm_mon;
-		double tmMon = parts->tm_mday;
-			if (input == 1){
-				std::string temp = "SELECT * FROM SpaceEvents WHERE Month = "+  to_string(tmMon) +" AND Day = "+ to_string(tmMon) +";";
-				exit = sqlite3_exec(DB, temp.c_str(), callback, 0, &messageError);
-
-				if (exit != SQLITE_OK){
-					cerr << "No evenets occurring today.\n" << std::endl;
-					sqlite3_free(messageError);
+					if (exit == 0){
+						cerr << "No events occurring today.\n" << std::endl;
+						sqlite3_free(messageError);
+					}
 				}
-			}
-			else if(input == 2){
-				std::string month, day;
-				std::cout << "Please enter the month and day:";
-				std::cin >> month >> day;
 
-				string temp = "SELECT * FROM SpaceEvents WHERE Month = "+ month +" AND Day = "+ day +";";
-                                exit = sqlite3_exec(DB, temp.c_str(), callback, 0, &messageError);
-				
-				if (exit != SQLITE_OK){
-					std::cerr << "No events occurring today.\n" << std::endl;
-					sqlite3_free(messageError);
+				else if(uChoice == 2){
+					std::string month, day;
+					std::cout << "Please enter the month and day:";
+					std::cin >> month >> day;
+
+					string temp = "SELECT * FROM SpaceEvents WHERE Month = "+ month +" AND Day = "+ day +";";
+					exit = sqlite3_exec(DB, temp.c_str(), callback, 0, &messageError);
+
+					if (exit == 0){
+						std::cerr << "No events occurring today.\n" << std::endl;
+						sqlite3_free(messageError);
+					}
 				}
-			}
-		sqlite3_close(DB); 
-	}
-	else if (input == 2){
-		std::cout << "Enter the number of rotations of the sun:";
-		std::cin >> solarPointer;
-		metonicPointer = calcMetonic(solarPointer);
-		callippicPointer = calcCallippic(solarPointer);
-		gamesPointer = calcGames(solarPointer);
-		sarosPointer = calcSaros(solarPointer);
-		exeglimosPointer = calcExeglimos(sarosPointer);
-		moonPointer = calcMoon(solarPointer);
-		std::cout << "Metonic Pointer=" << metonicPointer << " cycle(s)\nCallippic Pointer=" << callippicPointer << " cycles(s)\nGames Pointer=" << gamesPointer << " cycle(s)\nSaros pointer=" << sarosPointer << " cycle(s)\n";
-		std::cout << "Exeglimos pointer=" << exeglimosPointer << " cycles(s)\nMoon pointer=" << moonPointer << " rotations of the moon\n";
-		calcEclipse(solarPointer, moonPointer);
-	}
-	else if (input == 3)
-		std::cout << "Closing program...\n";
-	else {
-		std::cout << "Input not recognized. Select:";
-		std::cin >> input;
+		break;
+		}
+
+		case 2: {
+			std::cout << "Enter the number of rotations of the sun:";
+			std::cin >> solarPointer;
+			metonicPointer = calcMetonic(solarPointer);
+			callippicPointer = calcCallippic(solarPointer);
+			gamesPointer = calcGames(solarPointer);
+			sarosPointer = calcSaros(solarPointer);
+			exeglimosPointer = calcExeglimos(sarosPointer);
+			moonPointer = calcMoon(solarPointer);
+			std::cout << "Metonic Pointer=" << metonicPointer << " cycle(s)\nCallippic Pointer=" << callippicPointer << " cycles(s)\nGames Pointer=" << gamesPointer << " cycle(s)\nSaros pointer=" << sarosPointer << " cycle(s)\n";
+			std::cout << "Exeglimos pointer=" << exeglimosPointer << " cycles(s)\nMoon pointer=" << moonPointer << " rotations of the moon\n";
+			calcEclipse(solarPointer, moonPointer);
+			break;
+		}
+		case 3: {
+			system("Start ./AntikytheraGUI.exe");
+			break;
+		}
+		case 4: {
+			sqlite3_close(DB);
+			run = 0;
+			std::cout<<"Closing Program"<<std::endl;
+			break;
+		}
+
+		default: {
+			std::cout<<"Input not recognized"<<std::endl;
+			break;
+		}
+		}
 	}
 
 return 0;
