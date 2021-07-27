@@ -35,6 +35,12 @@ namespace AntikytheraGUI
             this.btn_reset = new System.Windows.Forms.Button();
             this.comboBox_month = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_predict = new System.Windows.Forms.Button();
+            this.lbl_year = new System.Windows.Forms.Label();
+            this.comboBox_year = new System.Windows.Forms.ComboBox();
+            this.checkBox_month = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btn_Quit = new System.Windows.Forms.Button();
             this.ovalPictureBox12 = new AntikytheraGUI.OvalPictureBox();
             this.venus = new AntikytheraGUI.OvalPictureBox();
             this.uranus = new AntikytheraGUI.OvalPictureBox();
@@ -44,7 +50,6 @@ namespace AntikytheraGUI
             this.mars = new AntikytheraGUI.OvalPictureBox();
             this.jupiter = new AntikytheraGUI.OvalPictureBox();
             this.earth = new AntikytheraGUI.OvalPictureBox();
-            this.btn_predict = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ovalPictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.venus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uranus)).BeginInit();
@@ -70,7 +75,7 @@ namespace AntikytheraGUI
             // 
             // btn_orbit
             // 
-            this.btn_orbit.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_orbit.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_orbit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_orbit.Location = new System.Drawing.Point(1551, 570);
             this.btn_orbit.Name = "btn_orbit";
@@ -82,7 +87,7 @@ namespace AntikytheraGUI
             // 
             // btn_reset
             // 
-            this.btn_reset.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_reset.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_reset.Location = new System.Drawing.Point(1734, 570);
             this.btn_reset.Name = "btn_reset";
@@ -112,6 +117,7 @@ namespace AntikytheraGUI
             this.comboBox_month.Name = "comboBox_month";
             this.comboBox_month.Size = new System.Drawing.Size(192, 21);
             this.comboBox_month.TabIndex = 17;
+            this.comboBox_month.Visible = false;
             this.comboBox_month.SelectedIndexChanged += new System.EventHandler(this.comboBox_month_SelectedIndexChanged);
             // 
             // label1
@@ -125,6 +131,83 @@ namespace AntikytheraGUI
             this.label1.Size = new System.Drawing.Size(111, 37);
             this.label1.TabIndex = 18;
             this.label1.Text = "Month";
+            // 
+            // btn_predict
+            // 
+            this.btn_predict.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_predict.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_predict.Location = new System.Drawing.Point(1644, 493);
+            this.btn_predict.Name = "btn_predict";
+            this.btn_predict.Size = new System.Drawing.Size(155, 42);
+            this.btn_predict.TabIndex = 19;
+            this.btn_predict.Text = "Predict";
+            this.btn_predict.UseVisualStyleBackColor = false;
+            this.btn_predict.Click += new System.EventHandler(this.btn_predict_Click);
+            // 
+            // lbl_year
+            // 
+            this.lbl_year.AutoSize = true;
+            this.lbl_year.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_year.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_year.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_year.Location = new System.Drawing.Point(1665, 279);
+            this.lbl_year.Name = "lbl_year";
+            this.lbl_year.Size = new System.Drawing.Size(89, 37);
+            this.lbl_year.TabIndex = 21;
+            this.lbl_year.Text = "Year";
+            // 
+            // comboBox_year
+            // 
+            this.comboBox_year.FormattingEnabled = true;
+            this.comboBox_year.Items.AddRange(new object[] {
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030",
+            "2031"});
+            this.comboBox_year.Location = new System.Drawing.Point(1622, 319);
+            this.comboBox_year.Name = "comboBox_year";
+            this.comboBox_year.Size = new System.Drawing.Size(192, 21);
+            this.comboBox_year.TabIndex = 20;
+            this.comboBox_year.Visible = false;
+            this.comboBox_year.SelectedIndexChanged += new System.EventHandler(this.comboBox_year_SelectedIndexChanged);
+            // 
+            // checkBox_month
+            // 
+            this.checkBox_month.AutoSize = true;
+            this.checkBox_month.Location = new System.Drawing.Point(1644, 190);
+            this.checkBox_month.Name = "checkBox_month";
+            this.checkBox_month.Size = new System.Drawing.Size(15, 14);
+            this.checkBox_month.TabIndex = 22;
+            this.checkBox_month.UseVisualStyleBackColor = true;
+            this.checkBox_month.CheckedChanged += new System.EventHandler(this.checkBox_month_CheckedChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(1644, 288);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 23;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // btn_Quit
+            // 
+            this.btn_Quit.BackColor = System.Drawing.Color.Red;
+            this.btn_Quit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Quit.Location = new System.Drawing.Point(1644, 642);
+            this.btn_Quit.Name = "btn_Quit";
+            this.btn_Quit.Size = new System.Drawing.Size(155, 42);
+            this.btn_Quit.TabIndex = 24;
+            this.btn_Quit.Text = "Quit";
+            this.btn_Quit.UseVisualStyleBackColor = false;
+            this.btn_Quit.Click += new System.EventHandler(this.btn_Quit_Click);
             // 
             // ovalPictureBox12
             // 
@@ -252,24 +335,17 @@ namespace AntikytheraGUI
             this.earth.TabIndex = 2;
             this.earth.TabStop = false;
             // 
-            // btn_predict
-            // 
-            this.btn_predict.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_predict.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_predict.Location = new System.Drawing.Point(1644, 493);
-            this.btn_predict.Name = "btn_predict";
-            this.btn_predict.Size = new System.Drawing.Size(155, 42);
-            this.btn_predict.TabIndex = 19;
-            this.btn_predict.Text = "Predict";
-            this.btn_predict.UseVisualStyleBackColor = false;
-            this.btn_predict.Click += new System.EventHandler(this.btn_predict_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::AntikytheraGUI.Properties.Resources.Space_Free_PNG_Image;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.btn_Quit);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkBox_month);
+            this.Controls.Add(this.lbl_year);
+            this.Controls.Add(this.comboBox_year);
             this.Controls.Add(this.btn_predict);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox_month);
@@ -321,6 +397,11 @@ namespace AntikytheraGUI
         private System.Windows.Forms.ComboBox comboBox_month;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_predict;
+        private System.Windows.Forms.Label lbl_year;
+        private System.Windows.Forms.ComboBox comboBox_year;
+        private System.Windows.Forms.CheckBox checkBox_month;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btn_Quit;
     }
 }
 
