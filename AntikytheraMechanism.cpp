@@ -90,7 +90,7 @@ tm* returnCurrentDate(){
 int main(void){
 
 double solarPointer, metonicPointer, callippicPointer, gamesPointer, sarosPointer, exeglimosPointer, moonPointer;
-std::string dbCarry;
+char* messageError;
 int input;
 
 std::cout << "1.Search for event by date\n2.Calculate positions\n3.Close\nSelect:";
@@ -103,24 +103,33 @@ std::cin >> input;
 		char* messageError; 
 
 			tm* parts = returnCurrentDate();
-    		std::cout << parts->tm_mday  << std::endl;
-    		std::cout <<1 + parts->tm_mon <<std::endl;
+    		std::cout <<1 + parts->tm_mon << '/' << parts->tm_mday<<std::endl;
 
 		std::cout << "1.Search by current date\n2.Search by different date\nSelect:";
 		std::cin >> input;
 		double tmDay = parts->tm_mon;
 		double tmMon = parts->tm_mday;
 			if (input == 1){
-				std::string temp = "SELECT FROM SpaceEvents WHERE Month = "+  to_string(tmMon) +" AND Day = "+ to_string(tmMon) +";";
-				exit = sqlite3_exec(DB, temp.c_str(), callback, NULL, NULL);
+				std::string temp = "SELECT * FROM SpaceEvents WHERE Month = "+  to_string(tmMon) +" AND Day = "+ to_string(tmMon) +";";
+				exit = sqlite3_exec(DB, temp.c_str(), callback, 0, &messageError);
+
+				if (exit != SQLITE_OK){
+					cerr << "No evenets occurring today.\n" << std::endl;
+					sqlite3_free(messageError);
+				}
 			}
 			else if(input == 2){
 				std::string month, day;
 				std::cout << "Please enter the month and day:";
 				std::cin >> month >> day;
 
-				string temp = "SELECT FROM SpaceEvents WHERE Month = "+ month +" AND Day = "+ day +";";
-                                exit = sqlite3_exec(DB, temp.c_str(), callback, NULL, NULL);
+				string temp = "SELECT * FROM SpaceEvents WHERE Month = "+ month +" AND Day = "+ day +";";
+                                exit = sqlite3_exec(DB, temp.c_str(), callback, 0, &messageError);
+				
+				if (exit != SQLITE_OK){
+					std::cerr << "No events occurring today.\n" << std::endl;
+					sqlite3_free(messageError);
+				}
 			}
 		sqlite3_close(DB); 
 	}
