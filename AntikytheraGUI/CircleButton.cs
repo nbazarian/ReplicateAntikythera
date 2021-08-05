@@ -52,15 +52,19 @@ namespace AntikytheraGUI
             }
             else
             {
+                
                 var oldX = Math.Cos(Angle) * Distance;
                 var oldY = Math.Sin(Angle) * Distance;
                 Angle += Speed;
                 var x = Math.Cos(Angle) * Distance - oldX;
                 var y = Math.Sin(Angle) * Distance - oldY;
                 Location += new Size((int)x, (int)y);
+                
             }
 
         }
+
+
     }
 
   

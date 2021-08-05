@@ -65,7 +65,10 @@ namespace AntikytheraGUI
         {
 
             InitializeComponent();
-
+            SetStyle(ControlStyles.ResizeRedraw, true);
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             //var pictureBox = new OvalPictureBox
             //{
             //    Angle = Math.PI,
@@ -453,6 +456,7 @@ namespace AntikytheraGUI
                     saturn.Location = new Point(932, 324);
                     uranus.Location = new Point(375, 181);
                     neptune.Location = new Point(811, 12);
+                    MessageBox.Show("Quadrantid Meteor Shower:\n\tDate: January 2nd\n\tFrequency: 40 meteors per hour\n\nConstellations:\n\tCaelum\n\tDorado\n\tLepus\n\tMensa\n\tOrion\n\tPictor\n\tReticulum\n\tTaurus\n", "Space Events in January");
                     january = false;
 
                 }
@@ -469,6 +473,7 @@ namespace AntikytheraGUI
                     saturn.Location = new Point(956, 315);
                     uranus.Location = new Point(366, 194);
                     neptune.Location = new Point(791, 9);
+                    MessageBox.Show("Constellations:\n\tAruiga\n\tCamelopardalis\n\tCanis Major\n\tColumba\n\tGemini\n\tMonoceros\n\tPuppis\n", "Space Events in February");
                     february = false;
 
                 }
@@ -485,6 +490,7 @@ namespace AntikytheraGUI
                     saturn.Location = new Point(919, 275); 
                     uranus.Location = new Point(374, 217);
                     neptune.Location = new Point(771, 12);
+                    MessageBox.Show("Constellations:\n\tCancer\n\tCanis Minor\n\tCarina\n\tLynx\n\tPyxis\n\tVela\n\tVolans\n", "Space Events in March");
                     march = false;
                 }
                 if (april == true)
@@ -500,6 +506,7 @@ namespace AntikytheraGUI
                     saturn.Location = new Point(948, 301);
                     uranus.Location = new Point(368, 231);
                     neptune.Location = new Point(762, 12);
+                    MessageBox.Show("Lyrids Meteor Shower:\n\tDate: April 22nd\n\tFrequency: 20 meteors per hour\nEta Aquarids Meteor Shower\n\tDate: April 19th\n\tFrequency: 20 meteors per hour\n\nConstellations:\n\tAntlia\n\tChamaeleon\n\tCrater\n\tHydra\n\tLeo\n\tLeo Minor\n\tSextans\n\tUrsa Major\n", "Space Events in April");
                     april = false;
 
                 }
@@ -516,6 +523,7 @@ namespace AntikytheraGUI
                     saturn.Location = new Point(940, 294);
                     uranus.Location = new Point(361, 247);
                     neptune.Location = new Point(745, 12);
+                    MessageBox.Show("Constellations:\n\tCanes Venatici\n\tCentaurus\n\tComa Berenices\n\tCorvus\n\tCrux\n\tMusca\n\tVirgo\n", "Space Events in May");
                     may = false;
                 }
                 if (june == true)
@@ -531,6 +539,7 @@ namespace AntikytheraGUI
                     saturn.Location = new Point(932, 282);
                     uranus.Location = new Point(357, 258);
                     neptune.Location = new Point(732, 12);
+                    MessageBox.Show("Constellations:\n\tBootes\n\tLibra\n\tLupus\n\tUrsa Minor\n", "Space Events in June");
                     june = false;
                 }
                 if (july == true)
@@ -546,6 +555,8 @@ namespace AntikytheraGUI
                     saturn.Location = new Point(932, 282);
                     uranus.Location = new Point(350, 273);
                     neptune.Location = new Point(719, 12);
+                    MessageBox.Show("Delta Aquarids Meteor Shower:\n\tDate: July 12th\n\tFrequency: 20 meteors per hour\nPerseids Meteor Shower:\n\tDate: July 17th\n\tFrequency: 60 meteors per hour\nConstellations:\n\tApus\n\tAra\n\tCircinus\n\tCorona Borealis\n\tDraco\n\tHercules\n\tNorma\n\tOphiuchus\n\tScorpius\n\tSerpens\n\tTriangulum Australe", "Space Events in July");
+
                     july = false;
                 }
                 if (august == true)
@@ -561,6 +572,7 @@ namespace AntikytheraGUI
                     saturn.Location = new Point(920, 265);
                     uranus.Location = new Point(339, 292);
                     neptune.Location = new Point(692, 12);
+                    MessageBox.Show("Constellations:\n\tAquilla\n\tCorona Australis\n\tLyra\n\tPavo\n\tSagitta\n\tSagittarius\n\tScutum\n\tTelescopium\n", "Space Events in August");
                     august = false;
 
                 }
@@ -577,6 +589,7 @@ namespace AntikytheraGUI
                     saturn.Location = new Point(913, 251);
                     uranus.Location = new Point(327, 316);
                     neptune.Location = new Point(663, 12);
+                    MessageBox.Show("Taurids Meteor Shower:\n\tDate: September 7th\n\tFrequency: 10 meteors per hour\n\nConstellations:\n\tCapricornus\n\tCygnus\n\tDelphinus\n\tEquuleus\n\tIndus\n\tMicroscopium\n\tVulpecula\n", "Space Events in September");
                     september = false;
                 }
                 if (october == true)
@@ -592,6 +605,7 @@ namespace AntikytheraGUI
                     saturn.Location = new Point(891, 240);
                     uranus.Location = new Point(321, 333);
                     neptune.Location = new Point(637, 21);
+                    MessageBox.Show("Draconids Meteor Shower:\n\tDate: October 6th\n\tFrequency: 10 meteors per hour\nOrionids Meteor Shower:\n\tDate: October 2nd\n\tFrequency: 20 meteors per hour\nConstellations:\n\tAquarius\n\tGrus\n\tLacerta\n\tOctans\n\tPegasus\n\tPiscis Austrinus\n", "Space Events in October");
                     october = false;
                 }
                 if (november == true)
@@ -607,6 +621,7 @@ namespace AntikytheraGUI
                     saturn.Location = new Point(877, 221);
                     uranus.Location = new Point(312, 351);
                     neptune.Location = new Point(608, 31);
+                    MessageBox.Show("Leonids Meteor Shower:\n\tDate: November 6th\n\tFrequency: 15 meteors per hour\n\nConstellations:\n\tAndromeda\n\tCassiopeia\n\tCepheus\n\tCetus\n\tHydrus\n\tPhoenix\n\tPisces\n\tSculptor\n\tTucana\n", "Space Events in November");
                     november = false;
                 }
                 if (december == true)
@@ -622,6 +637,7 @@ namespace AntikytheraGUI
                     saturn.Location = new Point(861, 207);
                     uranus.Location = new Point(305, 364);
                     neptune.Location = new Point(586, 36);
+                    MessageBox.Show("Geminids Meteor Shower:\n\tDate: December 7th\n\tFrequency: 120 meteors per hour\nUrsids Meteor Shower:\n\tDate: December 17th\n\tFrequency: 10 meteors per hour\n\nConstellations:\n\tAries\n\tEridanus\n\tFornax\n\tHorologium\n\tPerseus\n\tTriangulum\n", "Space Events in December");
                     december = false;
                 }
 
