@@ -156,10 +156,10 @@ namespace AntikytheraGUI
                 var timer = new Timer { Interval = 10 };
                 timer.Start();
 
-                if (reset == true)
-                {
-                    timer.Stop();
-                }
+                //if (reset == true)
+                //{
+                //    timer.Stop();
+                //}
 
                 if (predictButton == true)
                 {
@@ -176,6 +176,7 @@ namespace AntikytheraGUI
                     //ovalPictureBox8.Location = new Point(555, 450);
                     Controls.Add(mercury);
                     timer.Tick += (sender, args) => mercury.RotateStep(reset);
+
 
 
                     //venus
