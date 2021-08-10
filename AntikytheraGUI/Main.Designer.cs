@@ -366,6 +366,7 @@ namespace AntikytheraGUI
             this.Name = "Main";
             this.Text = "Replicate Antikythera";
             this.TransparencyKey = System.Drawing.Color.DimGray;
+            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ovalPictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.venus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uranus)).EndInit();

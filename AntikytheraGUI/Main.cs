@@ -831,5 +831,10 @@ namespace AntikytheraGUI
 
         }
         #endregion
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Use the orbit button to see how the planets orbit the sun.\n\nUse the dropdowns for either month or year then click the predict button to show the planets locations.\n\nHover over planet images for more information.\n", "HOW TO USE GUI");
+        }
     }
 }
